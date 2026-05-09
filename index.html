@@ -1,0 +1,525 @@
+<!DOCTYPE html>  <html lang="id">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>FREE FIRE TOURNAMENT</title>  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">  <style>  
+  
+*{  
+    margin:0;  
+    padding:0;  
+    box-sizing:border-box;  
+}  
+  
+body{  
+    font-family:'Poppins',sans-serif;  
+    background:#050505;  
+    color:white;  
+    overflow-x:hidden;  
+}  
+  
+/* BACKGROUND */  
+  
+.bg{  
+    position:fixed;  
+    inset:0;  
+    background:  
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),  
+    url('https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1600&auto=format&fit=crop');  
+    background-size:cover;  
+    background-position:center;  
+    z-index:-1;  
+}  
+  
+/* NAVBAR */  
+  
+.navbar{  
+    width:100%;  
+    padding:18px 8%;  
+    display:flex;  
+    justify-content:space-between;  
+    align-items:center;  
+    position:fixed;  
+    top:0;  
+    z-index:1000;  
+    backdrop-filter:blur(10px);  
+    background:rgba(0,0,0,.4);  
+    border-bottom:1px solid rgba(255,140,0,.15);  
+}  
+  
+.logo{  
+    display:flex;  
+    align-items:center;  
+    gap:14px;  
+}  
+  
+.logo-box{  
+    width:55px;  
+    height:55px;  
+    border-radius:16px;  
+    background:linear-gradient(135deg,#ff7b00,#ffcc00);  
+    display:flex;  
+    justify-content:center;  
+    align-items:center;  
+    color:black;  
+    font-weight:800;  
+    font-size:20px;  
+    box-shadow:0 0 25px rgba(255,140,0,.7);  
+}  
+  
+.logo-text h1{  
+    font-family:'Orbitron',sans-serif;  
+    font-size:20px;  
+}  
+  
+.logo-text p{  
+    color:#ffcc70;  
+    font-size:12px;  
+}  
+  
+.nav-links{  
+    display:flex;  
+    gap:25px;  
+}  
+  
+.nav-links a{  
+    color:white;  
+    text-decoration:none;  
+    font-size:14px;  
+    transition:.2s;  
+}  
+  
+.nav-links a:hover{  
+    color:#ffb300;  
+}  
+  
+/* HERO */  
+  
+.hero{  
+    min-height:100vh;  
+    display:flex;  
+    justify-content:center;  
+    align-items:center;  
+    text-align:center;  
+    padding:120px 20px 80px;  
+}  
+  
+.hero-content{  
+    max-width:850px;  
+}  
+  
+.hero h1{  
+    font-family:'Orbitron',sans-serif;  
+    font-size:70px;  
+    line-height:1.1;  
+    margin-bottom:20px;  
+    text-shadow:0 0 30px rgba(255,140,0,.5);  
+}  
+  
+.hero h1 span{  
+    color:#ffb300;  
+}  
+  
+.hero p{  
+    color:#ddd;  
+    line-height:1.8;  
+    margin-bottom:35px;  
+    font-size:17px;  
+}  
+  
+.hero-buttons{  
+    display:flex;  
+    gap:18px;  
+    justify-content:center;  
+    flex-wrap:wrap;  
+}  
+  
+.btn{  
+    padding:15px 30px;  
+    border:none;  
+    border-radius:16px;  
+    font-weight:700;  
+    cursor:pointer;  
+    transition:.2s;  
+    font-size:15px;  
+}  
+  
+.btn-primary{  
+    background:linear-gradient(135deg,#ff7b00,#ffb300);  
+    color:black;  
+    box-shadow:0 0 25px rgba(255,140,0,.4);  
+}  
+  
+.btn-secondary{  
+    background:rgba(255,255,255,.08);  
+    color:white;  
+    border:1px solid rgba(255,140,0,.2);  
+}  
+  
+.btn:hover{  
+    transform:translateY(-3px);  
+}  
+  
+/* SECTION */  
+  
+.section{  
+    padding:90px 8%;  
+}  
+  
+.section-title{  
+    text-align:center;  
+    margin-bottom:60px;  
+}  
+  
+.section-title h2{  
+    font-family:'Orbitron',sans-serif;  
+    font-size:40px;  
+    margin-bottom:10px;  
+}  
+  
+.section-title p{  
+    color:#aaa;  
+}  
+  
+/* CARDS */  
+  
+.cards{  
+    display:grid;  
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));  
+    gap:25px;  
+}  
+  
+.card{  
+    background:rgba(255,255,255,.05);  
+    border:1px solid rgba(255,140,0,.15);  
+    backdrop-filter:blur(10px);  
+    border-radius:24px;  
+    padding:30px;  
+    transition:.3s;  
+}  
+  
+.card:hover{  
+    transform:translateY(-8px);  
+    border-color:#ffb300;  
+}  
+  
+.card h3{  
+    margin-top:18px;  
+    margin-bottom:10px;  
+    font-size:20px;  
+}  
+  
+.card p{  
+    color:#bbb;  
+    line-height:1.7;  
+    font-size:14px;  
+}  
+  
+.icon{  
+    width:65px;  
+    height:65px;  
+    border-radius:18px;  
+    background:linear-gradient(135deg,#ff7b00,#ffb300);  
+    display:flex;  
+    justify-content:center;  
+    align-items:center;  
+    font-size:28px;  
+    color:black;  
+    font-weight:bold;  
+}  
+  
+/* PRIZE */  
+  
+.prize{  
+    text-align:center;  
+}  
+  
+.prize-box{  
+    max-width:650px;  
+    margin:auto;  
+    background:rgba(255,255,255,.05);  
+    border:1px solid rgba(255,140,0,.2);  
+    border-radius:28px;  
+    padding:45px;  
+    backdrop-filter:blur(10px);  
+}  
+  
+.prize-box h1{  
+    font-size:65px;  
+    color:#ffb300;  
+    font-family:'Orbitron',sans-serif;  
+    margin-bottom:10px;  
+}  
+  
+.prize-box p{  
+    color:#ccc;  
+    line-height:1.8;  
+}  
+  
+/* REGISTER */  
+  
+.register-box{  
+    max-width:600px;  
+    margin:auto;  
+    display:flex;  
+    flex-direction:column;  
+    gap:15px;  
+    background:rgba(255,255,255,.05);  
+    padding:35px;  
+    border-radius:25px;  
+    border:1px solid rgba(255,140,0,.15);  
+    backdrop-filter:blur(10px);  
+}  
+  
+.register-box input{  
+    padding:16px;  
+    border:none;  
+    outline:none;  
+    border-radius:14px;  
+    background:rgba(255,255,255,.08);  
+    color:white;  
+    font-size:15px;  
+}  
+  
+.register-box input::placeholder{  
+    color:#aaa;  
+}  
+  
+.register-box button{  
+    padding:16px;  
+    border:none;  
+    border-radius:14px;  
+    background:linear-gradient(135deg,#ff7b00,#ffb300);  
+    color:black;  
+    font-weight:700;  
+    cursor:pointer;  
+    transition:.2s;  
+}  
+  
+.register-box button:hover{  
+    transform:scale(1.03);  
+}  
+  
+/* FOOTER */  
+  
+.footer{  
+    padding:35px;  
+    text-align:center;  
+    color:#888;  
+    border-top:1px solid rgba(255,255,255,.06);  
+    margin-top:50px;  
+}  
+  
+/* MOBILE */  
+  
+@media(max-width:768px){  
+  
+    .hero h1{  
+        font-size:42px;  
+    }  
+  
+    .nav-links{  
+        display:none;  
+    }  
+  
+    .section-title h2{  
+        font-size:30px;  
+    }  
+  
+}  
+  
+</style>  </head>  <body>  <div class="bg"></div>  <!-- NAVBAR -->  <div class="navbar">  <div class="logo">  
+
+    <div class="logo-box">  
+        FF  
+    </div>  
+
+    <div class="logo-text">  
+        <h1>FF TOURNAMENT</h1>  
+        <p>Elite Battle Arena</p>  
+    </div>  
+
+</div>  
+
+<div class="nav-links">  
+    <a href="#">Home</a>  
+    <a href="#">Tournament</a>  
+    <a href="#">Prize</a>  
+    <a href="#">Register</a>  
+</div>
+
+</div>  <!-- HERO -->  <section class="hero">  <div class="hero-content">  
+
+    <h1>  
+        FREE FIRE <br>  
+        <span>CHAMPIONSHIP</span>  
+    </h1>  
+
+    <p>  
+        Ikuti turnamen Free Fire terbesar dan tunjukkan skill terbaikmu!  
+        Raih Booyah, menangkan hadiah jutaan rupiah, dan jadilah squad terbaik 🔥  
+    </p>  
+
+    <div class="hero-buttons">  
+
+        <button class="btn btn-primary">  
+            JOIN TOURNAMENT  
+        </button>  
+
+        <button class="btn btn-secondary">  
+            WATCH TRAILER  
+        </button>  
+
+    </div>  
+
+</div>
+
+</section>  <!-- FEATURES -->  <section class="section">  <div class="section-title">  
+
+    <h2>TOURNAMENT INFO</h2>  
+
+    <p>  
+        Semua informasi turnamen tersedia di bawah ini  
+    </p>  
+
+</div>  
+
+<div class="cards">  
+
+    <div class="card">  
+
+        <div class="icon">  
+            🎮  
+        </div>  
+
+        <h3>Mode Battle</h3>  
+
+        <p>  
+            Clash Squad dan Battle Royale dengan sistem point kompetitif.  
+        </p>  
+
+    </div>  
+
+    <div class="card">  
+
+        <div class="icon">  
+            🏆  
+        </div>  
+
+        <h3>Big Prize</h3>  
+
+        <p>  
+            Total hadiah jutaan rupiah untuk squad terbaik dan MVP player.  
+        </p>  
+
+    </div>  
+
+    <div class="card">  
+
+        <div class="icon">  
+            ⚡  
+        </div>  
+
+        <h3>Fast Match</h3>  
+
+        <p>  
+            Pertandingan cepat, seru, dan full aksi untuk semua survivor.  
+        </p>  
+
+    </div>  
+
+</div>
+
+</section>  <!-- PRIZE -->  <section class="section prize">  <div class="section-title">  
+
+    <h2>PRIZE POOL</h2>  
+
+    <p>  
+        Menangkan hadiah besar sekarang  
+    </p>  
+
+</div>  
+
+<div class="prize-box">  
+
+    <h1>Rp 10.000.000</h1>  
+
+    <p>  
+        Hadiah utama untuk squad terbaik.  
+        Bonus MVP, diamond Free Fire, dan sertifikat juara tersedia untuk semua pemenang 🎯  
+    </p>  
+
+</div>
+
+</section>  <!-- REGISTER -->  <section class="section">  <div class="section-title">  
+
+    <h2>REGISTER NOW</h2>  
+
+    <p>  
+        Daftarkan squad kalian sekarang juga 🔥  
+    </p>  
+
+</div>  
+
+<div class="register-box">  
+
+    <input type="text" placeholder="Nama Squad">  
+
+    <input type="text" placeholder="Nama Leader">  
+
+    <input type="text" placeholder="Nomor WhatsApp">  
+
+    <input type="text" placeholder="UID Free Fire">  
+
+    <button onclick="registerTeam()">  
+        DAFTAR SEKARANG  
+    </button>  
+
+</div>
+
+</section>  <!-- FOOTER -->  <div class="footer">  
+    © 2026 Free Fire Tournament Website  
+</div>  <script>  
+  
+function registerTeam(){  
+  
+    const squad =  
+    document.querySelectorAll("input")[0].value;  
+  
+    const leader =  
+    document.querySelectorAll("input")[1].value;  
+  
+    const wa =  
+    document.querySelectorAll("input")[2].value;  
+  
+    const uid =  
+    document.querySelectorAll("input")[3].value;  
+  
+    if(  
+        squad === "" ||  
+        leader === "" ||  
+        wa === "" ||  
+        uid === ""  
+    ){  
+  
+        alert(  
+            "Isi semua data dulu 🔥"  
+        );  
+  
+        return;  
+    }  
+  
+    const text =  
+`🔥 PENDAFTARAN FREE FIRE 🔥  
+  
+Nama Squad: ${squad}  
+Leader: ${leader}  
+WhatsApp: ${wa}  
+UID Free Fire: ${uid}`;  
+  
+window.open(  
+`https://wa.me/6285813291613?text=${encodeURIComponent(text)}`,  
+"_blank"
+  
+}  
+  
+</script>  </body>  
+</html>
